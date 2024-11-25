@@ -3,17 +3,18 @@
 ThreadPool::ThreadPool(size_t deepOfPool)
     : deepOfPool(deepOfPool), appRunning(false)
 {
-
-
     threadHolder.reserve(deepOfPool);
-
-
 
 }
 
 ThreadPool::~ThreadPool()
 {
         stop();
+            for (auto &thread : threadHolder) {
+        if (thread.joinable()) {
+            thread.join();
+        }
+    }
 
 }
 
@@ -27,11 +28,7 @@ void ThreadPool::start() {
 void ThreadPool::stop() {
         appRunning=false;
     poolCv.notify_all();
-    for (auto &thread : threadHolder) {
-        if (thread.joinable()) {
-            thread.join();
-        }
-    }
+
 }
 void ThreadPool::taskEnqueuer(std::function<void()> task)
 {
