@@ -15,7 +15,7 @@ This project implements a **multithreaded TCP server and client** application in
 ---
 
 ## Requirements
-
+- **Execution** Executable with Makefile in terminal and also with VScode - code writen with Ubuntu24
 - **Compiler**: GCC 13 or higher (C++20 support required).
 - **Build System**: `make` utility.
 - **Libraries**:
