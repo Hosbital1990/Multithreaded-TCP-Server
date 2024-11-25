@@ -1,4 +1,4 @@
-# Multithreaded TCP Server and Client
+# Multithreaded TCP Server
 
 This project implements a **multithreaded TCP server and client** application in C++ using modern C++20 features. It supports concurrent connections and efficient communication using `epoll` and a thread pool.
 
